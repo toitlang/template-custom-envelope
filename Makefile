@@ -2,7 +2,7 @@
 # Use of this source code is governed by a Zero-Clause BSD license that can
 # be found in the LICENSE file.
 
-# Change to your configuration. See ../toit/toolchains for the available targets.
+# Change to your configuration. See toit/toolchains for the available targets.
 # Then run 'make init'.
 TARGET := esp32
 
