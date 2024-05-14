@@ -1,6 +1,6 @@
 // Copyright (C) 2024 Toitware ApS.
 // Use of this source code is governed by a Zero-Clause BSD license that can
-// be found in the tests/LICENSE file.
+// be found in the LICENSE file.
 
 #include <toit/toit.h>
 
@@ -52,7 +52,7 @@ static toit_err_t on_message(void* user_data, int sender, void* data, int length
 ///
 /// @param user_data The user data passed to `toit_msg_add_handler`.
 /// @param sender The id of the sender.
-/// @param function The function id of the request.
+/// @param function The function id of the request. For the echo service this is ignored.
 /// @param handle The handle to reply to the request. This handle must be provided to either
 ///               `toit_msg_request_reply` or `toit_msg_request_fail`.
 /// @param data The data of the request.
