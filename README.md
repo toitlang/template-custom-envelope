@@ -44,6 +44,7 @@ on a GitHub runner. You can use this as a reference for setting up your own envi
   ``` shell
   git clone git@github.com:your-owner/your-repo.git
   cd your-repo
+  git submodule update --init --recursive
   ```
 
 * Change the license to your license.
