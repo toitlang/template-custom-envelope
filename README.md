@@ -23,9 +23,29 @@ on a GitHub runner. You can use this as a reference for setting up your own envi
 
 ### Initial setup
 
-* Duplicate this repository, following
-  [GitHub's instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/duplicating-a-repository).
+* Duplicate this repository:
+
+  Start by creating a fresh repository on GitHub. Then run the following
+  commands, replacing `your-owner/your-repo` with the name of your repository:
+
+  ``` shell
+  git clone --bare https://github.com/toitlang/template-custom-envelope.git
+  cd template-custom-envelope.git
+  git push --mirror git@github.com:your-owner/your-repo.git
+  cd ..
+  rm -rf template-custom-envelope.git
+  ```
+
+  Also see [GitHub's instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/duplicating-a-repository).
   If you forked it, you can also detach the fork: https://support.github.com/request/fork
+
+* Check out your new repository (again replacing `your-repo` with the name of your repository):
+
+  ``` shell
+  git clone git@github.com:your-owner/your-repo.git
+  cd your-repo
+  ```
+
 * Change the license to your license.
 * Change the `TARGET` variable in the Makefile to the name of your chip. By default it is set to `esp32`.
 * Run `make init`. This will copy some of the Toit files, depending on the target, to your repository.
