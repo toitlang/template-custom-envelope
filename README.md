@@ -44,12 +44,27 @@ on a GitHub runner. You can use this as a reference for setting up your own envi
   ``` shell
   git clone git@github.com:your-owner/your-repo.git
   cd your-repo
+  ```
+
+* Update the Toit submodule to match your needs.
+  If you are using an installed [Jaguar](https://github.com/toitlang/jaguar) you
+  should use the same SDK version as Jaguar. Use `jag version` to find the version.
+  Otherwise, consider using the latest version.
+
+  ``` shell
+  pushd toit
+  git checkout YOUR_VERSION
   git submodule update --init --recursive
+  popd
   ```
 
 * Change the license to your license.
 * Change the `TARGET` variable in the Makefile to the name of your chip. By default it is set to `esp32`.
 * Run `make init`. This will copy some of the Toit files, depending on the target, to your repository.
+
+After initialization you should have the files `sdkconfig.defaults` and `partitions.csv` in the `build-root`
+folder. Together with the `sdkconfig` file, which is created when building, these files should be
+checked into your repository.
 
 ### Configuration
 * Adjust or remove the C components in the `components` folder.
