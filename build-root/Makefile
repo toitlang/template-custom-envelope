@@ -47,8 +47,8 @@ all: esp32
 
 .PHONY: check-env
 check-env:
-	$(MAKE) -C "$(TOIT_ROOT)" check-env
-	$(MAKE) -C "$(TOIT_ROOT)" check-esp32-env
+	@$(MAKE) -C "$(TOIT_ROOT)" check-env
+	@$(MAKE) -C "$(TOIT_ROOT)" check-esp32-env
 
 .PHONY: check-windows
 check-windows:
@@ -68,7 +68,7 @@ esp32: $(SDK_PATH)/bin/toit$(EXE_SUFFIX) check-windows
 	@if [ "$(shell command -v xtensa-esp32-elf-g++)" = "" ]; then \
 		source '$(IDF_PATH)/export.sh'; \
 	fi; \
-	@$(MAKE) esp32-no-env
+	$(MAKE) esp32-no-env
 
 .PHONY: esp32-no-env
 esp32-no-env: check-env check-windows
@@ -76,7 +76,7 @@ esp32-no-env: check-env check-windows
 
 .PHONY: build-host
 build-host:
-	# Note that the 'host' is automatically added.
+	@# Note that the 'host' is automatically added.
 	@cmake -E env \
 		"EXTERNAL_TOIT_LIB_DIRS=$(COMPONENTS)" \
 		$(MAKE) -C "$(TOIT_ROOT)" BUILD=$(BUILD_PATH)
