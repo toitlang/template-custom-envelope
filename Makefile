@@ -77,5 +77,5 @@ $(BUILD_ROOT)/partitions.csv: initialize-submodules
 
 .PHONY: diff
 diff:
-	@diff --color -aur $(TOIT_ROOT)/toolchains/$(IDF_TARGET)/sdkconfig.defaults $(BUILD_ROOT)/sdkconfig.defaults || true
-	@diff --color -aur $(TOIT_ROOT)/toolchains/$(IDF_TARGET)/partitions.csv $(BUILD_ROOT)/partitions.csv || true
+	@diff --color $(TOIT_ROOT)/toolchains/$(IDF_TARGET)/sdkconfig.defaults $(BUILD_ROOT)/sdkconfig.defaults || true
+	@diff --color $(TOIT_ROOT)/toolchains/$(IDF_TARGET)/partitions.csv $(BUILD_ROOT)/partitions.csv || true
