@@ -47,7 +47,7 @@ on a GitHub runner. You can use this as a reference for setting up your own envi
   ```
 
 * Update the Toit submodule to match your needs.
-  If you are using an installed [Jaguar](https://github.com/toitlang/jaguar) you
+  If you are using an installed [Jaguar](https://github.com/toitlang/jaguar), you
   should use the same SDK version as Jaguar. Use `jag version` to find the version.
   Otherwise, consider using the latest version.
 
