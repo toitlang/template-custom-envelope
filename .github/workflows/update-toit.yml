@@ -1,0 +1,43 @@
+# Copyright (C) 2025 Toit contributors
+#
+# Use of this source code is governed by a BSD0-style license that can be
+# found in the LICENSE file.
+
+name: Update Toit submodule
+
+on:
+  workflow_dispatch:
+    inputs:
+      toit_version:
+        description: "Toit version (commit SHA or tag)"
+        required: true
+        type: string
+
+jobs:
+  update-submodule:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Git user
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Update toit submodule
+        run: |
+          cd toit
+          git fetch origin
+          git checkout ${{ github.event.inputs.toit_version }}
+          cd ..
+          git add toit
+
+      - name: Commit and push changes
+        run: |
+          git commit -m "Update toit submodule to version ${{ github.event.inputs.toit_version }}"
+          git push
