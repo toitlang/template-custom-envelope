@@ -59,7 +59,7 @@ on a GitHub runner. You can use this as a reference for setting up your own envi
   ```
 
 * Change the license to your license.
-* Change the `TARGET` variable in the Makefile to the name of your chip. By default it is set to `esp32`.
+* Change the `IDF_TARGET` variable in the Makefile to the name of your chip. By default it is set to `esp32`.
 * Run `make init`. This will copy some of the Toit files, depending on the target, to your repository.
 
 After initialization you should have the files `sdkconfig.defaults` and `partitions.csv` in the `build-root`
